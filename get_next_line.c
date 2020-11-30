@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 01:49:59 by spark             #+#    #+#             */
-/*   Updated: 2020/11/30 22:07:49 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/30 23:16:51 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				get_next_line(int fd, char **line)
 {
 	static char *room[OPEN_MAX + 1];
 	char		buff[BUFFER_SIZE + 1];
+	char		*tmp;
 	int			rt;
 
 	rt = 0;
@@ -65,7 +66,9 @@ int				get_next_line(int fd, char **line)
 	while ((rt = read(fd, buff, BUFFER_SIZE)) >= 0)
 	{
 		buff[rt] = 0;
-		room[fd] = !(room[fd]) ? ft_strdup(buff) : ft_strjoin(room[fd], buff);
+		tmp = !(room[fd]) ? ft_strdup(buff) : ft_strjoin(room[fd], buff);
+		free(room[fd]);
+		room[fd] = tmp;
 		if (ft_strchr(room[fd], '\n'))
 		{
 			rt_n_store(&room[fd], line);
@@ -73,10 +76,8 @@ int				get_next_line(int fd, char **line)
 			break ;
 		}
 		else if (rt == 0)
-		{
 			if (!(rt = rt_room(&room[fd], line)))
 				break ;
-		}
 	}
 	return (rt);
 }
