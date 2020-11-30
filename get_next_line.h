@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 01:52:09 by spark             #+#    #+#             */
-/*   Updated: 2020/11/25 21:31:34 by spark            ###   ########.fr       */
+/*   Updated: 2020/11/30 21:54:07 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 500
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 10240
 # endif
 
 #include <stdio.h>
