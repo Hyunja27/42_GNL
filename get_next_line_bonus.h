@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 01:52:09 by spark             #+#    #+#             */
-/*   Updated: 2020/12/02 10:16:43 by spark            ###   ########.fr       */
+/*   Updated: 2020/12/02 11:02:59 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #  define OPEN_MAX 10240
 # endif
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
